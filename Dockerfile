@@ -16,6 +16,8 @@ RUN curl -sSL https://getcomposer.org/installer | php \
     && docker-php-ext-install zip \
     && apt-get purge -y --auto-remove zlib1g-dev \
     && rm -rf /var/lib/apt/lists/*
+    
+RUN echo "ServerName localhost" >> /etc/apache2/httpd.conf
 
 RUN a2enmod rewrite
 RUN usermod -u 1000 www-data
