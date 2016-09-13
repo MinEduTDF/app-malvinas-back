@@ -16,14 +16,11 @@ RUN curl -sSL https://getcomposer.org/installer | php \
     && docker-php-ext-install zip \
     && apt-get purge -y --auto-remove zlib1g-dev \
     && rm -rf /var/lib/apt/lists/*
-    
-RUN echo "ServerName localhost" >> /etc/apache2/httpd.conf
-RUN sed -i '/^Include \/etc\/apache2\/sysconfig.d\/include.conf/s/^/#/' /etc/apache2/httpd.conf
 
 RUN a2enmod rewrite
-RUN usermod -u 1000 www-data
-RUN chown -R www-data:www-data /var/www
 
-ADD . /var/www/html/
-WORKDIR /var/www/html/
-RUN composer update
+RUN usermod -u 1000 www-data
+# Clona el repositorio 
+RUN git clone  https://github.com/MinEduTDF/Web-MalvinasPanel-Back /Web-MalvinasPanel-Back
+WORKDIR /Web-MalvinasPanel-Back
+RUN composer install
