@@ -26,6 +26,4 @@ RUN chown -R www-data:www-data /var/www
  
 ADD . /var/www/html/
 WORKDIR /var/www/html/
-RUN mkdir -p /tmp/cache/persistent
-RUN mkdir -p /tmp/cache/models
 RUN composer install
