@@ -13,8 +13,8 @@ class ArticlesController extends AppController
 
     public $paginate = [
         'page' => 1,
-        'limit' => 5,
-        'maxLimit' => 15,
+        'limit' => 50,
+        //'maxLimit' => 15,
         'sortWhitelist' => [
             'id', 'title'
         ]
