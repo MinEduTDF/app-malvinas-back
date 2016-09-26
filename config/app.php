@@ -1,4 +1,8 @@
 <?php
+$host = (string)getenv('HOST');
+$username = (string)getenv('USERNAME');
+$password = (string)getenv('PASSWORD');
+$database = (string)getenv('DATABASE');
 return [
     /**
      * Debug Level:
@@ -219,9 +223,9 @@ return [
              * the following line and set the port accordingly
              */
             //'port' => '',
-            'username' => env(string $USERNAME),
-            'password' => env(string $PASSWORD),
-            'database' => env(string $DATABASE),
+            'username' => $username,
+            'password' => $password,
+            'database' => $database,
             'encoding' => 'utf8',
             'timezone' => 'UTC',
             'cacheMetadata' => true,
