@@ -1,4 +1,5 @@
 <?php
+$salt = (string)getenv('SALT');
 $host = (string)getenv('HOST');
 $username = (string)getenv('USERNAME');
 $password = (string)getenv('PASSWORD');
@@ -66,7 +67,7 @@ return [
      *   You should treat it as extremely sensitive data.
      */
     'Security' => [
-        'salt' => '33a6ec3ab5dd775f326dd97fca48e569c893596b',
+        'salt' => $salt,
     ],
 
     /**
