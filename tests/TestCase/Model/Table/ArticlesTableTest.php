@@ -10,75 +10,25 @@ use Cake\TestSuite\TestCase;
  */
 class ArticlesTableTest extends TestCase
 {
+    public $fixtures = ['app.articles']; 
 
-    /**
-     * Test subject
-     *
-     * @var \App\Model\Table\ArticlesTable
-     */
-    public $Articles;
-
-    /**
-     * Fixtures
-     *
-     * @var array
-     */
-    public $fixtures = [
-        'app.articles',
-        'app.categories'
-    ];
-
-    /**
-     * setUp method
-     *
-     * @return void
-     */
     public function setUp()
     {
         parent::setUp();
-        $config = TableRegistry::exists('Articles') ? [] : ['className' => 'App\Model\Table\ArticlesTable'];
-        $this->Articles = TableRegistry::get('Articles', $config);
-    }
+        $this->Articles = TableRegistry::get('Articles');
+    }  
 
-    /**
-     * tearDown method
-     *
-     * @return void
-     */
-    public function tearDown()
+    public function testFindStatus()
     {
-        unset($this->Articles);
+        $query = $this->Articles->find('status');
+        $this->assertInstanceOf('cake\ORM\Query', $query);
+        $result = $query->hydrate(false)->toArray();
+        $expected = [
+            ['id' => 1, 'title' => 'First Article'],
+            ['id' => 2, 'title' => 'Second Article'],
+            ['id' => 3, 'title' => 'Third Article'],
+        ];
 
-        parent::tearDown();
-    }
-
-    /**
-     * Test initialize method
-     *
-     * @return void
-     */
-    public function testInitialize()
-    {
-        $this->markTestIncomplete('Not implemented yet.');
-    }
-
-    /**
-     * Test validationDefault method
-     *
-     * @return void
-     */
-    public function testValidationDefault()
-    {
-        $this->markTestIncomplete('Not implemented yet.');
-    }
-
-    /**
-     * Test buildRules method
-     *
-     * @return void
-     */
-    public function testBuildRules()
-    {
-        $this->markTestIncomplete('Not implemented yet.');
+        $this->assertEquals($expected, $result);
     }
 }

@@ -15,7 +15,6 @@ return [
      * true: Errors and warnings shown.
      */
     'debug' => false,
-
     /**
      * Configure basic information about the application.
      *
@@ -58,7 +57,6 @@ return [
             'locales' => [APP . 'Locale' . DS],
         ],
     ],
-
     /**
      * Security and encryption configuration
      *
@@ -69,7 +67,6 @@ return [
     'Security' => [
         'salt' => $salt,
     ],
-
     /**
      * Apply timestamps with the last modified time to static assets (js, css, images).
      * Will append a querystring parameter containing the time the file was modified.
@@ -81,7 +78,6 @@ return [
     'Asset' => [
         // 'timestamp' => true,
     ],
-
     /**
      * Configure the cache adapters.
      */
@@ -90,7 +86,6 @@ return [
             'className' => 'File',
             'path' => CACHE,
         ],
-
         /**
          * Configure the cache used for general framework caching. Path information,
          * object listings, and translation cache files are stored with this
@@ -103,7 +98,6 @@ return [
             'serialize' => true,
             'duration' => '+2 minutes',
         ],
-
         /**
          * Configure the cache for model and datasource caches. This cache
          * configuration is used to store schema descriptions, and table listings
@@ -117,7 +111,6 @@ return [
             'duration' => '+2 minutes',
         ],
     ],
-
     /**
      * Configure the Error and Exception handlers used by your application.
      *
@@ -151,7 +144,6 @@ return [
         'log' => true,
         'trace' => true,
     ],
-
     /**
      * Email configuration.
      *
@@ -196,7 +188,6 @@ return [
             'tls' => null,
         ],
     ],
-
     'Email' => [
         'default' => [
             'transport' => 'default',
@@ -205,7 +196,6 @@ return [
             //'headerCharset' => 'utf-8',
         ],
     ],
-
     /**
      * Connection information used by the ORM to connect
      * to your application's datastores.
@@ -230,7 +220,6 @@ return [
             'encoding' => 'utf8',
             'timezone' => 'UTC',
             'cacheMetadata' => true,
-
             /**
              * Set identifier quoting to true if you are using reserved words or
              * special characters in your table or column names. Enabling this
@@ -240,7 +229,6 @@ return [
              * manipulated before being executed.
              */
             'quoteIdentifiers' => false,
-
             /**
              * During development, if using MySQL < 5.6, uncommenting the
              * following line could boost the speed at which schema metadata is
@@ -250,7 +238,6 @@ return [
              */
             //'init' => ['SET GLOBAL innodb_stats_on_metadata = 0'],
         ],
-
         /**
          * The test connection is used during the test suite.
          */
@@ -270,7 +257,6 @@ return [
             //'init' => ['SET GLOBAL innodb_stats_on_metadata = 0'],
         ],
     ],
-
     /**
      * Configures logging options
      */
@@ -288,7 +274,6 @@ return [
             'levels' => ['warning', 'error', 'critical', 'alert', 'emergency'],
         ],
     ],
-
     /**
      *
      * Session configuration.

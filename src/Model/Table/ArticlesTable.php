@@ -85,4 +85,12 @@ class ArticlesTable extends Table
         $rules->add($rules->existsIn(['category_id'], 'Categories'));
         return $rules;
     }
+
+    public function findStatus(Query $query, array $options)
+    {
+        $query->where([
+            $this->alias() . '.status' => 1
+        ]);
+        return $query;
+    }
 }
